@@ -1,1 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact E-Rat for investor enquiries, rider and driver interest, and business partnerships.">
+  <title>Contact Us | E-Rat</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .contact-panel, .contact-form {
+      background: #102536;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .contact-panel h2, .contact-form h2 {
+      color: #fff;
+      margin-top: 0;
+    }
+    .contact-detail {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .contact-detail:last-child { border-bottom: 0; }
+    .contact-detail strong {
+      display: block;
+      color: #B8F52A;
+      margin-bottom: 6px;
+    }
+    .contact-detail a { color: #fff; }
+    .contact-form label {
+      display: block;
+      color: #fff;
+      margin: 15px 0 7px;
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 13px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: #071522;
+      color: #fff;
+      font: inherit;
+      box-sizing: border-box;
+    }
+    .contact-form textarea { min-height: 130px; resize: vertical; }
+    .contact-form button {
+      margin-top: 18px;
+      padding: 13px 24px;
+      border: 0;
+      border-radius: 8px;
+      background: #B8F52A;
+      color: #071522;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .form-note {
+      color: #b8c5ce;
+      font-size: .88rem;
+      line-height: 1.6;
+      margin-top: 14px;
+    }
+    @media (max-width: 760px) {
+      .contact-layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
 
+<body>
+
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">E-RAT<span>.</span></a>
+
+    <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="riders.html">Riders</a>
+      <a href="drivers.html">Drivers</a>
+      <a href="investors.html">Investors</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">LET'S CONNECT</p>
+      <h1>Build the future of mobility with us.</h1>
+      <p>
+        Have an investment enquiry, want to explore our planned services,
+        or interested in working with E-Rat? We'd like to hear from you.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container contact-layout">
+
+      <div class="contact-panel">
+        <h2>Contact Information</h2>
+        <p>
+          E-Rat is currently in its pre-launch planning stage,
+          with an initial focus on Delhi NCR.
+        </p>
+
+        <div class="contact-detail">
+          <strong>Email</strong>
+          <a href="mailto:jatin.bhatia@erat.co.in">
+            jatin.bhatia@erat.co.in
+          </a>
+        </div>
+
+        <div class="contact-detail">
+          <strong>Location</strong>
+          <span>Delhi NCR, India</span>
+        </div>
+
+        <div class="contact-detail">
+          <strong>For investor enquiries</strong>
+          <span>Please select "Investor Enquiry" in the contact form.</span>
+        </div>
+
+        <div class="contact-detail">
+          <strong>For driver and rider interest</strong>
+          <span>Choose the relevant enquiry type and share your details.</span>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+
+        <form id="contactForm">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="category">Enquiry Type</label>
+          <select id="category" name="category" required>
+            <option value="">Select an enquiry type</option>
+            <option>Investor Enquiry</option>
+            <option>Rider Interest</option>
+            <option>Driver Interest</option>
+            <option>Fleet Partnership</option>
+            <option>Business Partnership</option>
+            <option>Careers</option>
+            <option>Other</option>
+          </select>
+
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message"
+            placeholder="Tell us how we can help..." required></textarea>
+
+          <button type="submit">Send Enquiry →</button>
+
+          <p class="form-note">
+            This form opens your email application with your message prepared.
+            It does not submit information to an E-Rat database.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div>
+      <a href="index.html" class="logo">E-RAT<span>.</span></a>
+      <p>Mobility for Everyone. Anytime. Anywhere.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="investors.html">Investors</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+
+    <p class="copyright">© 2026 E-Rat. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const category = document.getElementById("category").value;
+    const message = document.getElementById("message").value.trim();
+
+    const subject = encodeURIComponent("E-Rat Website Enquiry: " + category);
+    const body = encodeURIComponent(
+      "Name: " + name + "\n" +
+      "Email: " + email + "\n" +
+      "Enquiry Type: " + category + "\n\n" +
+      "Message:\n" + message
+    );
+
+    window.location.href =
+      "mailto:jatin.bhatia@erat.co.in?subject=" + subject + "&body=" + body;
+  });
+</script>
+
+</body>
+</html>
