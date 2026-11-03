@@ -1,1 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-labelledby="title desc">
+  <title id="title">E-Rat Logo</title>
+  <desc id="desc">E-Rat mobility and technology brand logo in navy, white and neon green.</desc>
 
+  <rect x="8" y="8" width="164" height="164" rx="38" fill="#071522"/>
+  
+  <path d="M48 116V64h77v18H70v8h48v16H70v10h55v18H48z" fill="#B8F52A"/>
+  <circle cx="136" cy="48" r="9" fill="#B8F52A"/>
+  
+  <text x="200" y="112"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="82"
+        font-weight="800"
+        letter-spacing="-4"
+        fill="#FFFFFF">E-RAT</text>
+
+  <text x="204" y="145"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="600"
+        letter-spacing="4"
+        fill="#B8F52A">MOBILITY TECHNOLOGY</text>
+</svg>
