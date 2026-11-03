@@ -3,80 +3,404 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="E-Rat — Mobility for Everyone. Anytime. Anywhere. Building a technology-driven urban mobility ecosystem from India.">
+<meta name="theme-color" content="#071522">
 <title>E-Rat | Mobility for Everyone</title>
 <style>
+:root {
+  --bg:#071522;
+  --panel:#0d2030;
+  --panel2:#10283a;
+  --green:#b8f52a;
+  --white:#fff;
+  --muted:#a9b8c5;
+  --line:rgba(255,255,255,.1);
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;color:#14213d;background:#fff;line-height:1.6}
-header{padding:24px 8%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee}
-.logo{font-size:28px;font-weight:800;color:#14213d}
-.logo span{color:#71bd43}
-nav a{margin-left:24px;text-decoration:none;color:#14213d;font-weight:600}
-.hero{padding:110px 8%;background:#f5f8f4}
-.hero h1{font-size:clamp(40px,7vw,76px);line-height:1.08;max-width:850px}
-.hero h1 span{color:#68b83d}
-.hero p{font-size:19px;color:#596579;margin:25px 0;max-width:600px}
-.btn{display:inline-block;background:#14213d;color:white;padding:15px 25px;border-radius:7px;text-decoration:none;font-weight:bold}
-section{padding:75px 8%}
-h2{font-size:36px;margin-bottom:18px}
-.intro{color:#667085;max-width:700px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-top:35px}
-.card{padding:28px;border:1px solid #e6e9ed;border-radius:12px}
-.card h3{margin-bottom:12px;font-size:21px}
-.card p{color:#667085}
-.dark{background:#14213d;color:white}
-.dark p{color:#c5ccda}
-.contact{background:#f5f8f4}
-footer{padding:30px 8%;background:#0b1427;color:#c5ccda}
-@media(max-width:600px){nav{display:none}.hero{padding:75px 7%}section{padding:55px 7%}}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:var(--bg);color:var(--white);
+  line-height:1.65;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(7,21,34,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  max-width:1200px;margin:auto;padding:16px 22px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-size:27px;font-weight:900;letter-spacing:-1.5px}
+.logo span{color:var(--green)}
+.navlinks{display:flex;align-items:center;gap:22px}
+.navlinks button{
+  background:none;border:0;color:var(--muted);
+  cursor:pointer;font-size:13px;font-weight:700;
+}
+.navlinks button:hover,.navlinks button.active{color:var(--green)}
+.menu-btn{
+  display:none;background:var(--green);color:#071522;
+  border:0;border-radius:8px;padding:8px 13px;font-weight:800;
+}
+.container{max-width:1160px;margin:auto;padding:0 24px}
+.page{display:none;min-height:75vh;animation:fade .3s ease}
+.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hero{
+  min-height:590px;display:flex;align-items:center;
+  padding:85px 0;
+  background:
+    radial-gradient(ellipse at 85% 30%,rgba(184,245,42,.13),transparent 35%),
+    linear-gradient(120deg,#071522,#0b2030);
+}
+.eyebrow{
+  color:var(--green);font-size:12px;letter-spacing:3px;
+  font-weight:900;text-transform:uppercase;
+}
+h1{font-size:clamp(43px,7vw,78px);line-height:1.04;
+   letter-spacing:-3px;margin:20px 0}
+h1 span,h2 span{color:var(--green)}
+h2{font-size:clamp(30px,4vw,46px);line-height:1.15;margin:12px 0 20px}
+h3{font-size:20px;margin-bottom:10px}
+p{color:var(--muted);margin:12px 0}
+.hero-copy{max-width:690px}
+.hero-copy p{font-size:18px;max-width:600px}
+.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}
+.btn{
+  display:inline-block;padding:13px 22px;border-radius:7px;
+  font-weight:900;font-size:14px;border:1px solid var(--green);
+  cursor:pointer;
+}
+.btn.primary{background:var(--green);color:#071522}
+.btn.secondary{color:var(--green);background:transparent}
+.section{padding:75px 0}
+.section-head{max-width:700px;margin-bottom:35px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  padding:25px;border:1px solid var(--line);
+  background:linear-gradient(145deg,var(--panel),#091a28);
+  border-radius:14px;
+}
+.card .symbol{font-size:28px;margin-bottom:15px}
+.card p{font-size:14px}
+.tag{
+  display:inline-block;padding:5px 10px;border-radius:30px;
+  background:rgba(184,245,42,.1);color:var(--green);
+  font-size:11px;font-weight:900;letter-spacing:1px;
+}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:30px}
+.stat{padding:22px;border-left:2px solid var(--green);background:var(--panel)}
+.stat strong{display:block;font-size:25px;color:var(--green)}
+.page-hero{padding:75px 0 45px;background:linear-gradient(120deg,#0b2030,#071522)}
+.page-hero h1{font-size:clamp(38px,6vw,62px)}
+.content{padding:45px 0 80px}
+.content-block{max-width:850px}
+.content-block ul{padding-left:22px;color:var(--muted);margin:15px 0}
+.content-block li{margin:9px 0}
+.notice{
+  border:1px solid rgba(184,245,42,.35);
+  background:rgba(184,245,42,.06);
+  padding:17px;border-radius:10px;margin:22px 0;
+  color:var(--muted);font-size:14px;
+}
+.faq{border-bottom:1px solid var(--line);padding:20px 0}
+.faq h3{color:var(--white)}
+footer{border-top:1px solid var(--line);padding:38px 0}
+.footer-inner{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
+.footer-links{display:flex;gap:17px;flex-wrap:wrap}
+.footer-links button{background:none;border:0;color:var(--muted);cursor:pointer}
+.footer-links button:hover{color:var(--green)}
+.small{font-size:12px;color:#8293a1}
+.contact-box{padding:28px;background:var(--panel);border-radius:12px;margin-top:20px}
+@media(max-width:850px){
+ .navlinks{
+   display:none;position:absolute;top:65px;left:0;right:0;
+   padding:20px;background:#071522;border-bottom:1px solid var(--line);
+   flex-direction:column;align-items:flex-start;
+ }
+ .navlinks.open{display:flex}
+ .menu-btn{display:block}
+ .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+ .grid,.stats{grid-template-columns:1fr}
+ .hero{min-height:520px;padding:65px 0}
+ h1{letter-spacing:-2px}
+ .section{padding:55px 0}
+ .nav{padding:14px 18px}
+}
 </style>
 </head>
 <body>
+
 <header>
-<div class="logo">E-<span>RAT</span></div>
-<nav>
-<a href="#about">About</a>
-<a href="#platform">Platform</a>
-<a href="#drivers">Drivers</a>
-<a href="#contact">Contact</a>
-</nav>
+ <div class="nav">
+  <a class="logo" href="#" onclick="showPage('home');return false">E<span>-</span>RAT</a>
+  <button class="menu-btn" onclick="toggleMenu()">MENU ☰</button>
+  <nav class="navlinks" id="navlinks">
+   <button onclick="showPage('home')">Home</button>
+   <button onclick="showPage('discover')">Discover</button>
+   <button onclick="showPage('about')">About</button>
+   <button onclick="showPage('platform')">Platform</button>
+   <button onclick="showPage('drivers')">Drivers</button>
+   <button onclick="showPage('careers')">Careers</button>
+   <button onclick="showPage('contact')">Contact</button>
+  </nav>
+ </div>
 </header>
 
-<div class="hero">
-<h1>Mobility for Everyone.<br><span>Anytime. Anywhere.</span></h1>
-<p>Building a connected mobility experience through technology, accessibility and smarter transportation.</p>
-<a class="btn" href="#about">Discover E-Rat</a>
-</div>
+<main>
 
-<section id="about">
-<h2>Moving India Forward</h2>
-<p class="intro">E-Rat is a mobility and technology venture focused on making everyday transportation more accessible and connected.</p>
+<!-- 1 HOME -->
+<section class="page active" id="home">
+ <div class="hero">
+  <div class="container hero-copy">
+   <div class="eyebrow">The future of everyday mobility</div>
+   <h1>Mobility for Everyone.<br><span>Anytime. Anywhere.</span></h1>
+   <p>We are building a technology-driven mobility ecosystem designed to bring riders, drivers and urban transportation closer together.</p>
+   <div class="actions">
+    <a class="btn primary" href="#" onclick="showPage('discover');return false">Discover E-Rat →</a>
+    <a class="btn secondary" href="#" onclick="showPage('contact');return false">Partner with us</a>
+   </div>
+   <div class="stats">
+    <div class="stat"><strong>India</strong><span>Our starting point</span></div>
+    <div class="stat"><strong>2026</strong><span>Founded</span></div>
+    <div class="stat"><strong>2027</strong><span>Target launch year</span></div>
+   </div>
+  </div>
+ </div>
+ <div class="section container">
+  <div class="section-head">
+   <div class="eyebrow">A new mobility vision</div>
+   <h2>Moving cities forward, <span>together.</span></h2>
+   <p>E-Rat aims to make everyday urban transportation more accessible, reliable and technology-enabled.</p>
+  </div>
+  <div class="grid">
+   <div class="card"><div class="symbol">🚕</div><h3>Ride Mobility</h3><p>A planned platform for convenient everyday e-rickshaw journeys.</p></div>
+   <div class="card"><div class="symbol">📍</div><h3>Smart Technology</h3><p>Technology-led tools designed to support mobility operations.</p></div>
+   <div class="card"><div class="symbol">🤝</div><h3>Driver Ecosystem</h3><p>Building a platform that aims to connect drivers with opportunities.</p></div>
+  </div>
+ </div>
 </section>
 
-<section id="platform" class="dark">
-<h2>Technology Meets Mobility</h2>
-<p>We believe technology can simplify the way people access everyday transportation. Our vision is to build a more connected mobility ecosystem.</p>
-<div class="cards">
-<div class="card"><h3>Smart Mobility</h3><p>A technology-first approach to everyday transportation.</p></div>
-<div class="card"><h3>Accessibility</h3><p>Making mobility more approachable for communities.</p></div>
-<div class="card"><h3>Connected Ecosystem</h3><p>Bringing people and mobility partners closer together.</p></div>
-</div>
+<!-- 2 DISCOVER -->
+<section class="page" id="discover">
+ <div class="page-hero"><div class="container"><div class="eyebrow">Discover E-Rat</div><h1>More than a ride.<br><span>A mobility ecosystem.</span></h1><p>Our ambition is to create a connected urban mobility experience.</p></div></div>
+ <div class="content container">
+  <div class="grid">
+   <div class="card"><h3>For Riders</h3><p>A simpler and more accessible way to explore everyday mobility options.</p></div>
+   <div class="card"><h3>For Drivers</h3><p>Digital tools and platform opportunities designed around driver needs.</p></div>
+   <div class="card"><h3>For Businesses</h3><p>Potential partnerships across fleets, mobility services and advertising.</p></div>
+  </div>
+  <div class="notice">E-Rat is currently in its pre-launch planning stage. Services described on this website are planned and are not yet available for booking.</div>
+ </div>
 </section>
 
-<section id="drivers">
-<h2>Our Driver Community</h2>
-<p class="intro">We believe drivers are at the heart of the mobility ecosystem. Our vision is to create opportunities through a connected platform.</p>
+<!-- 3 ABOUT -->
+<section class="page" id="about">
+ <div class="page-hero"><div class="container"><div class="eyebrow">About us</div><h1>Built around the way <span>cities move.</span></h1></div></div>
+ <div class="content container content-block">
+  <h2>Who we are</h2>
+  <p>E-Rat is an India-origin mobility initiative founded in 2026, with a vision to build a technology-driven urban mobility ecosystem.</p>
+  <h2>Our mission</h2>
+  <p>Make everyday urban mobility more accessible, reliable and technology-enabled.</p>
+  <h2>Our vision</h2>
+  <p>Build a leading technology-driven mobility ecosystem originating in India.</p>
+  <h2>Our approach</h2>
+  <p>We aim to bring riders, drivers and mobility operations closer through practical technology, thoughtful design and partnerships.</p>
+ </div>
 </section>
 
-<section id="contact" class="contact">
-<h2>Let's Connect</h2>
-<p>For business enquiries and general communication:</p>
-<p style="margin-top:15px"><strong>Email:</strong> hello@erat.co.in</p>
+<!-- 4 FOUNDER -->
+<section class="page" id="founder">
+ <div class="page-hero"><div class="container"><div class="eyebrow">Leadership</div><h1>Meet the <span>Founder.</span></h1></div></div>
+ <div class="content container content-block">
+  <span class="tag">FOUNDER & CHIEF EXECUTIVE OFFICER</span>
+  <h2>Jatin Bhatia</h2>
+  <p>Jatin Bhatia founded E-Rat with the ambition to build an India-origin, technology-driven mobility ecosystem. His focus is on bringing riders, drivers and mobility operations closer through accessible and practical technology.</p>
+  <p>As Founder & CEO, he is guiding the company's early vision, direction and long-term ambition as E-Rat moves through its pre-launch planning stage.</p>
+ </div>
 </section>
+
+<!-- 5 PLATFORM -->
+<section class="page" id="platform">
+ <div class="page-hero"><div class="container"><div class="eyebrow">Our platform</div><h1>Technology powering <span>mobility.</span></h1><p>Our planned platform brings multiple mobility capabilities into one connected ecosystem.</p></div></div>
+ <div class="content container">
+  <div class="grid">
+   <div class="card"><h3>Ride Booking</h3><p>Planned e-rickshaw discovery and booking experience.</p></div>
+   <div class="card"><h3>GPS Tracking</h3><p>Planned location and trip visibility features.</p></div>
+   <div class="card"><h3>Digital Payments</h3><p>Planned digital payment capabilities.</p></div>
+   <div class="card"><h3>Driver Onboarding</h3><p>Planned digital driver registration and verification workflows.</p></div>
+   <div class="card"><h3>Fleet Management</h3><p>Planned tools for fleet operations and management.</p></div>
+   <div class="card"><h3>Advertising</h3><p>A potential advertising platform for mobility-related businesses.</p></div>
+  </div>
+  <div class="notice">These capabilities are part of the product roadmap and should not be considered live features.</div>
+ </div>
+</section>
+
+<!-- 6 DRIVERS -->
+<section class="page" id="drivers">
+ <div class="page-hero"><div class="container"><div class="eyebrow">Driver ecosystem</div><h1>Built with drivers <span>in mind.</span></h1><p>We aim to create a supportive digital ecosystem for e-rickshaw drivers.</p></div></div>
+ <div class="content container content-block">
+  <h2>Our planned approach</h2>
+  <ul>
+   <li>Digital driver onboarding and profile management.</li>
+   <li>Access to a planned ride discovery platform.</li>
+   <li>Technology-enabled trip and location information.</li>
+   <li>Potential fleet and operational support tools.</li>
+  </ul>
+  <div class="notice">Driver registration is not currently open. Updates will be shared when the platform is ready.</div>
+  <a class="btn primary" href="mailto:jatin.bhatia@erat.co.in?subject=E-Rat%20Driver%20Interest">Express interest by email</a>
+ </div>
+</section>
+
+<!-- 7 WHY -->
+<section class="page" id="why">
+ <div class="page-hero"><div class="container"><div class="eyebrow">Why E-Rat</div><h1>Everyday mobility.<br><span>Reimagined.</span></h1></div></div>
+ <div class="content container">
+  <div class="grid">
+   <div class="card"><h3>Accessibility</h3><p>We believe mobility should be approachable and accessible.</p></div>
+   <div class="card"><h3>Technology</h3><p>We aim to use practical technology to improve mobility experiences.</p></div>
+   <div class="card"><h3>Connected Ecosystem</h3><p>Our vision connects riders, drivers, fleet operators and partners.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- 8 CAREERS -->
+<section class="page" id="careers">
+ <div class="page-hero"><div class="container"><div class="eyebrow">Careers at E-Rat</div><h1>Build what moves <span>tomorrow.</span></h1><p>Be part of an ambitious mobility and technology journey.</p></div></div>
+ <div class="content container">
+  <h2>Future opportunity areas</h2>
+  <div class="grid">
+   <div class="card"><h3>Technology & Product</h3><p>Engineering, product design, software and data.</p></div>
+   <div class="card"><h3>Operations</h3><p>Mobility operations, fleet coordination and service quality.</p></div>
+   <div class="card"><h3>Sales & Partnerships</h3><p>Business development, partnerships and growth.</p></div>
+   <div class="card"><h3>People & Finance</h3><p>Human resources, finance and business support.</p></div>
+  </div>
+  <div class="notice">There are no confirmed open positions listed at this time. These are future hiring areas, not active vacancies.</div>
+  <a class="btn primary" href="mailto:jatin.bhatia@erat.co.in?subject=Career%20Interest%20-%20E-Rat">Send your profile</a>
+ </div>
+</section>
+
+<!-- 9 CONTACT -->
+<section class="page" id="contact">
+ <div class="page-hero"><div class="container"><div class="eyebrow">Contact us</div><h1>Let's start a <span>conversation.</span></h1><p>For business enquiries, partnerships, investor communication and career interest.</p></div></div>
+ <div class="content container">
+  <div class="contact-box">
+   <div class="eyebrow">General enquiries</div>
+   <h2>Get in touch with E-Rat</h2>
+   <p>Email: <a style="color:var(--green)" href="mailto:jatin.bhatia@erat.co.in">jatin.bhatia@erat.co.in</a></p>
+   <div class="actions">
+    <a class="btn primary" href="mailto:jatin.bhatia@erat.co.in">Email E-Rat</a>
+    <a class="btn secondary" href="mailto:jatin.bhatia@erat.co.in?subject=Business%20Partnership">Business partnership</a>
+   </div>
+  </div>
+  <p class="small">Headquarters: Delhi NCR, India. A public office address and telephone number have not been published.</p>
+ </div>
+</section>
+
+<!-- 10 INVESTORS -->
+<section class="page" id="investors">
+ <div class="page-hero"><div class="container"><div class="eyebrow">Investor relations</div><h1>Building a mobility <span>opportunity.</span></h1></div></div>
+ <div class="content container content-block">
+  <h2>Our ambition</h2>
+  <p>E-Rat aims to develop a technology-enabled urban mobility ecosystem, beginning in Delhi NCR and with a long-term vision to expand responsibly.</p>
+  <h2>Current stage</h2>
+  <p>Pre-launch / Planning.</p>
+  <h2>Investor enquiries</h2>
+  <p>For investor-related communication, please contact:</p>
+  <a class="btn primary" href="mailto:jatin.bhatia@erat.co.in?subject=Investor%20Enquiry">Investor enquiry</a>
+  <div class="notice">No financial performance, funding, valuation or investment returns are represented on this page. Please request verified company materials directly.</div>
+ </div>
+</section>
+
+<!-- 11 FAQ -->
+<section class="page" id="faq">
+ <div class="page-hero"><div class="container"><div class="eyebrow">Frequently asked questions</div><h1>Questions? <span>We've got you.</span></h1></div></div>
+ <div class="content container">
+  <div class="faq"><h3>What is E-Rat?</h3><p>E-Rat is a mobility initiative focused on building a technology-enabled e-rickshaw ecosystem.</p></div>
+  <div class="faq"><h3>Where is E-Rat based?</h3><p>E-Rat is based in Delhi NCR, India.</p></div>
+  <div class="faq"><h3>Can I book a ride today?</h3><p>No. Ride booking is a planned feature. The platform is currently in pre-launch planning.</p></div>
+  <div class="faq"><h3>Can drivers register?</h3><p>Driver onboarding is planned. Registration is not currently open.</p></div>
+  <div class="faq"><h3>How can I contact E-Rat?</h3><p>Email jatin.bhatia@erat.co.in for enquiries.</p></div>
+  <div class="faq"><h3>How can I apply for a job?</h3><p>You can send your profile to jatin.bhatia@erat.co.in.</p></div>
+ </div>
+</section>
+
+<!-- 12 PRIVACY -->
+<section class="page" id="privacy">
+ <div class="page-hero"><div class="container"><div class="eyebrow">Legal</div><h1>Privacy <span>policy.</span></h1></div></div>
+ <div class="content container content-block">
+  <div class="notice">Starter draft only — this policy must be reviewed by a qualified legal professional and updated before collecting personal information or launching services.</div>
+  <h2>1. Introduction</h2><p>E-Rat respects the privacy of visitors to its website. This draft explains the intended approach to information shared through website communication.</p>
+  <h2>2. Information you provide</h2><p>If you email us, we may receive your email address and the information you choose to include in your message.</p>
+  <h2>3. Use of information</h2><p>Information may be used to respond to enquiries, consider partnership opportunities and communicate about E-Rat.</p>
+  <h2>4. Sharing</h2><p>We do not intend to sell personal information. Any future sharing with service providers will require an appropriate privacy framework.</p>
+  <h2>5. Security and retention</h2><p>Reasonable safeguards and retention practices should be established before collecting user or driver data.</p>
+  <h2>6. Contact</h2><p>Privacy enquiries: jatin.bhatia@erat.co.in</p>
+ </div>
+</section>
+
+<!-- 13 TERMS -->
+<section class="page" id="terms">
+ <div class="page-hero"><div class="container"><div class="eyebrow">Legal</div><h1>Terms & <span>conditions.</span></h1></div></div>
+ <div class="content container content-block">
+  <div class="notice">Starter draft only — legal review is required before publication. These terms are not a substitute for final platform, driver or rider agreements.</div>
+  <h2>1. Website information</h2><p>This website provides general information about E-Rat and its planned mobility ecosystem.</p>
+  <h2>2. Pre-launch status</h2><p>Features and services described are planned and may change. Their display does not mean that they are currently operational or available.</p>
+  <h2>3. No booking or transaction</h2><p>This website does not currently provide ride booking, driver registration, payment processing or fleet transactions.</p>
+  <h2>4. Intellectual property</h2><p>Website content and branding should not be copied or used without appropriate permission.</p>
+  <h2>5. Changes</h2><p>E-Rat may update website content as the company and its plans evolve.</p>
+  <h2>6. Contact</h2><p>For questions about these terms, contact jatin.bhatia@erat.co.in.</p>
+ </div>
+</section>
+
+</main>
 
 <footer>
-<strong>E-RAT</strong>
-<p>Mobility for Everyone. Anytime. Anywhere.</p>
-<p>© 2026 E-Rat. All rights reserved.</p>
+ <div class="container footer-inner">
+  <div>
+   <a class="logo" href="#" onclick="showPage('home');return false">E<span>-</span>RAT</a>
+   <p>Mobility for Everyone. Anytime. Anywhere.</p>
+   <p class="small">© 2026 E-Rat. All rights reserved.</p>
+  </div>
+  <div class="footer-links">
+   <button onclick="showPage('about')">About</button>
+   <button onclick="showPage('founder')">Founder</button>
+   <button onclick="showPage('why')">Why E-Rat</button>
+   <button onclick="showPage('investors')">Investors</button>
+   <button onclick="showPage('faq')">FAQs</button>
+   <button onclick="showPage('privacy')">Privacy</button>
+   <button onclick="showPage('terms')">Terms</button>
+  </div>
+ </div>
 </footer>
+
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const target=document.getElementById(id);
+  if(target) target.classList.add('active');
+  document.querySelectorAll('.navlinks button').forEach(b=>b.classList.remove('active'));
+  const active=[...document.querySelectorAll('.navlinks button')]
+    .find(b=>b.getAttribute('onclick')?.includes("'"+id+"'"));
+  if(active) active.classList.add('active');
+  document.getElementById('navlinks').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+  history.replaceState(null,'','#'+id);
+}
+function toggleMenu(){
+  document.getElementById('navlinks').classList.toggle('open');
+}
+window.addEventListener('load',()=>{
+  const id=location.hash.replace('#','');
+  if(id && document.getElementById(id)) showPage(id);
+});
+</script>
 </body>
-                            </html>
+</html>
