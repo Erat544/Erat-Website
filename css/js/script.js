@@ -8,15 +8,19 @@ document.addEventListener("DOMContentLoaded", function () {
     menuToggle.addEventListener("click", function () {
       const isOpen = mainNav.classList.toggle("active");
 
-      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
       menuToggle.textContent = isOpen ? "✕" : "☰";
     });
 
-    // Close menu after selecting a page
     mainNav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         mainNav.classList.remove("active");
         menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
         menuToggle.textContent = "☰";
       });
     });
@@ -26,11 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const languageToggle = document.getElementById("languageToggle");
 
   if (languageToggle) {
-    let currentLanguage = localStorage.getItem("erat-language") || "en";
+    let currentLanguage =
+      localStorage.getItem("erat-language") || "en";
 
     function updateLanguage(language) {
       currentLanguage = language;
-
       document.documentElement.lang = language;
 
       document.querySelectorAll("[data-en][data-hi]").forEach(function (element) {
@@ -53,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateLanguage(currentLanguage);
   }
 
-  // CURRENT YEAR IN FOOTER
+  // CURRENT YEAR
   document.querySelectorAll("[data-current-year]").forEach(function (element) {
     element.textContent = new Date().getFullYear();
   });
